@@ -1,0 +1,105 @@
+:root {
+    --bg-color: #f0fdfa;
+    --text-color: #004d4d;
+    --card-bg: #ffffff;
+    --accent: #008080;
+    --accent-hover: #006666;
+}
+
+body.dark {
+    --bg-color: #002b2b;
+    --text-color: #e0f7f7;
+    --card-bg: #004040;
+    --accent: #00cccc;
+    --accent-hover: #009999;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin: 15px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+}
+
+/* Layout split */
+.layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.cards-section {
+    flex: 3;
+}
+
+.chart-section {
+    flex: 1;
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cards */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    margin: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin: 5px 0;
+}

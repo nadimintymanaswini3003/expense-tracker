@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense Tracker</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>💰 Expense Tracker</h1>
+        <a href="/add" class="btn">+ Add Expense</a>
+        <button id="themeToggle" class="btn">🌗 Toggle Theme</button>
+        <h2>Total Spent: ₹{{ total }}</h2>
+
+        <div class="layout">
+            <!-- Cards Section -->
+            <div class="cards-section">
+                <h2>Expenses</h2>
+                <div class="gallery">
+                    {% for expense in expenses %}
+                    <div class="card">
+                        <h3>₹{{ expense[1] }}</h3>
+                        <p><strong>Category:</strong>
+                            {% if expense[2] == "food" %} 🍔 {% elif expense[2] == "shopping" %} 🛒 {% elif expense[2]
+                            == "makeup" %} 💄 {% else %} 📌 {% endif %}
+                            {{ expense[2] }}
+                        </p>
+                        <p><strong>Description:</strong> {{ expense[3] }}</p>
+                        <p class="date">{{ expense[4] }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <h2>Spending Breakdown</h2>
+                <canvas id="expenseChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pass data to JS -->
+    <script>
+        const categoryLabels = {{ category_totals.keys() | list | tojson }};
+        const categoryValues = {{ category_totals.values() | list | tojson }};
+    </script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
