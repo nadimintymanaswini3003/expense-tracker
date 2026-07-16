@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     // Chart.js setup
     const ctx = document.getElementById('expenseChart').getContext('2d');
