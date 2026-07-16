@@ -31,7 +31,7 @@ Includes a **dark/light theme toggle** and a clean teal‑based UI.
 
 2. **install dependencies**
    ```bash
-    pip install -r requirements.txt
+    pip install -r req.txt
   
 3. **run the app**
     ```bash
