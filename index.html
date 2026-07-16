@@ -3,36 +3,40 @@
 
 <head>
     <title>Expense Tracker</title>
-    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
         <h1>💰 Expense Tracker</h1>
-        <a href="/add" class="btn">+ Add Expense</a>
+        <a href="add_expense.html" class="btn">+ Add Expense</a>
         <button id="themeToggle" class="btn">🌗 Toggle Theme</button>
-        <h2>Total Spent: ₹{{ total }}</h2>
+        <h2>Total Spent: ₹1500</h2>
 
         <div class="layout">
             <!-- Cards Section -->
             <div class="cards-section">
                 <h2>Expenses</h2>
                 <div class="gallery">
-                    {% for expense in expenses %}
                     <div class="card">
-                        <h3>₹{{ expense[1] }}</h3>
-                        <p><strong>Category:</strong>
-                            {% if expense[2] == "food" %} 🍔 {% elif expense[2] == "shopping" %} 🛒 {% elif expense[2]
-                            == "makeup" %} 💄 {% else %} 📌 {% endif %}
-                            {{ expense[2] }}
-                        </p>
-                        <p><strong>Description:</strong> {{ expense[3] }}</p>
-                        <p class="date">{{ expense[4] }}</p>
+                        <h3>₹500</h3>
+                        <p><strong>Category:</strong> 🍔 Food</p>
+                        <p><strong>Description:</strong> Lunch at cafe</p>
+                        <p class="date">2026-07-15</p>
                     </div>
-                    {% endfor %}
+                    <div class="card">
+                        <h3>₹700</h3>
+                        <p><strong>Category:</strong> 🛒 Shopping</p>
+                        <p><strong>Description:</strong> Clothes</p>
+                        <p class="date">2026-07-14</p>
+                    </div>
+                    <div class="card">
+                        <h3>₹300</h3>
+                        <p><strong>Category:</strong> 💄 Makeup</p>
+                        <p><strong>Description:</strong> Lipstick</p>
+                        <p class="date">2026-07-13</p>
+                    </div>
                 </div>
             </div>
 
@@ -44,13 +48,12 @@
         </div>
     </div>
 
-    <!-- Pass data to JS -->
+    <!-- Static data for chart -->
     <script>
-        const categoryLabels = {{ category_totals.keys() | list | tojson }};
-        const categoryValues = {{ category_totals.values() | list | tojson }};
+        const categoryLabels = ["Food", "Shopping", "Makeup"];
+        const categoryValues = [500, 700, 300];
     </script>
 
-    <!-- Chart.js + custom script -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
