@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -27,8 +25,7 @@
                     <div class="card">
                         <h3>₹{{ expense[1] }}</h3>
                         <p><strong>Category:</strong>
-                            {% if expense[2] == "food" %} 🍔 {% elif expense[2] == "shopping" %} 🛒 {% elif
-                            expense[2]
+                            {% if expense[2] == "food" %} 🍔 {% elif expense[2] == "shopping" %} 🛒 {% elif expense[2]
                             == "makeup" %} 💄 {% else %} 📌 {% endif %}
                             {{ expense[2] }}
                         </p>
@@ -52,10 +49,10 @@
         const categoryLabels = {{ category_totals.keys() | list | tojson }};
         const categoryValues = {{ category_totals.values() | list | tojson }};
     </script>
-    <!-- Custom JS -->
+
+    <!-- Chart.js + custom script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
-
-=======
 
 </html>

@@ -1,4 +1,4 @@
-root {
+:root {
     --bg-color: #f0fdfa;
     --text-color: #004d4d;
     --card-bg: #ffffff;
@@ -102,5 +102,4 @@ h2 {
 
 .card p {
     margin: 5px 0;
-    =======
 }
